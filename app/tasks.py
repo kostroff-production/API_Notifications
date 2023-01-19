@@ -28,7 +28,7 @@ def post_message(self, json):
 
     with requests.post(
         url=config['foreign_api'] + json['id'],
-        auth=TokenAuth([config['token']),
+        auth=TokenAuth(config['token']),
         json=json
     ) as response:
         logger.info(f'post_message(json): {json}')
