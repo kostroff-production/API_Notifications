@@ -167,6 +167,7 @@ DATABASES = {
 
 ADMIN = {
     "login": config['admin']['login'],
+    "email": config['admin']['email'],
     "password": config['admin']['password']
 }
 
