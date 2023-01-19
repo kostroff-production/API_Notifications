@@ -5,7 +5,6 @@ from celery import shared_task
 from . import models, serializers
 from django.utils import timezone
 from notifications.settings import config
-import random
 from .exceptions import PostMessageException
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
@@ -29,7 +28,7 @@ def post_message(self, json):
 
     with requests.post(
         url=config['foreign_api'] + json['id'],
-        auth=TokenAuth(random.choice([config['token'], 'ahfkfhkdjshfsdjkhfjk'])),
+        auth=TokenAuth([config['token']),
         json=json
     ) as response:
         logger.info(f'post_message(json): {json}')
