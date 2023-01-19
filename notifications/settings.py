@@ -151,16 +151,6 @@ SPECTACULAR_SETTINGS = {
     'SERVERS': [{'url': 'https://localhost/api/v1'}],
 }
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -173,6 +163,11 @@ DATABASES = {
                     'NAME': 'test_' + config['postgres']['database'],
                 },
     }
+}
+
+ADMIN = {
+    "login": config['admin']['login'],
+    "password": config['admin']['password']
 }
 
 ADMINS = [
@@ -242,10 +237,3 @@ CELERY_BROKER_CONNECTION_MAX_RETRIES = 3
 
 
 CORS_ORIGIN_WHITELIST = []
-
-
-# для yasg
-# SWAGGER_SETTINGS = {
-#     'LOGIN_URL': '/admin/login/',
-#     'LOGOUT_URL': '/admin/logout/'
-# }
