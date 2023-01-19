@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  support:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app/
+    restart: always
+    ports:
+    - "7000:7000"
+    
+  celery_worker:
+    restart: always
+    build:
+      context: ./
+    command: celery -A TZ_Notifications worker -l INFO
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - support
+      
+  celery_beat:
+    restart: always
+    build:
+      context: ./
+    command: celery -A TZ_Notifications beat -l INFO
+    volumes:
+      - ./:/usr/src/app/
+    depends_on:
+      - support
+      - celery_worker
