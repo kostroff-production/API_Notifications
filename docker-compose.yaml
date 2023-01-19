@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  support:
+  app:
     build:
       context: ./
       dockerfile: Dockerfile
@@ -15,19 +15,19 @@ services:
     restart: always
     build:
       context: ./
-    command: celery -A TZ_Notifications worker -l INFO
+    command: celery -A app worker -l INFO
     volumes:
       - ./:/usr/src/app/
     depends_on:
-      - support
+      - app
       
   celery_beat:
     restart: always
     build:
       context: ./
-    command: celery -A TZ_Notifications beat -l INFO
+    command: celery -A app beat -l INFO
     volumes:
       - ./:/usr/src/app/
     depends_on:
-      - support
+      - app
       - celery_worker
