@@ -43,4 +43,4 @@ API проекта в двух вариациях это `Swagger` и `Redoc`, O
 docs/v3/swagger/
 docs/v3/redoc/
 ```
-
+Рассылка осуществялется при помощи `Celery` и брокер для него `Redis`, код можно посмотреть здесь [tasks.py](https://github.com/kostroff-production/TZ_Notifications/blob/main/app/tasks.py)
