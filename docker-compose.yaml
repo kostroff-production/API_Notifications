@@ -15,7 +15,7 @@ services:
     restart: always
     build:
       context: ./
-    command: celery -A app worker -l INFO
+    command: celery -A TZ_Notifications worker -l INFO
     volumes:
       - ./:/usr/src/app/
     depends_on:
@@ -25,7 +25,7 @@ services:
     restart: always
     build:
       context: ./
-    command: celery -A app beat -l INFO
+    command: celery -A TZ_Notifications beat -l INFO
     volumes:
       - ./:/usr/src/app/
     depends_on:
