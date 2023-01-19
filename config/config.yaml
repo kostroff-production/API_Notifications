@@ -21,3 +21,4 @@ email:
 admin:
   login: admin
   email: work@yandex.ru
+  password: admin
