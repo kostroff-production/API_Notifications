@@ -36,3 +36,11 @@ chmod +x ./entrypoint.sh
 docker build .
 docker-compose up -d --build
 ```
+# API
+API проекта в двух вариациях это `Swagger` и `Redoc`, OpenAPI 3-й версии.
+Доступно по адресам:
+```python
+docs/v3/swagger/
+docs/v3/redoc/
+```
+
