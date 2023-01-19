@@ -4,9 +4,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-# для корректной работы с БД вызываем фикстуру transactional_db
-# создание каждого объекта модели гарантирует, что тест test_schedule_send,
-# который проходит 3 этапа вызова, дойдет до конца
 @pytest.fixture
 def setUP(transactional_db):
     mailing = models.Mailing.objects.create(
