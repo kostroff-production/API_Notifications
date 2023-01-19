@@ -1,0 +1,23 @@
+token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDE4NzA2NDYsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6Imtvc3Ryb2ZmX3Byb2R1Y3Rpb24ifQ.iGEK6IbDSCl5EvURO5tXhJ8koD0L_GS3fZZyK752jQw'
+foreign_api: 'https://probe.fbrq.cloud/v1/send/'
+
+
+postgres:
+  database: notifications
+  user: admin_db
+  password: admin_db
+  host: 127.0.0.1
+  port: 5432
+
+
+email:
+  address: test@yandex.ru
+  host: smtp.yandex.ru
+  port: 465
+  user: admin
+  password: admin
+
+
+admin:
+  login: admin
+  email: work@yandex.ru
