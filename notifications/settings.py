@@ -102,8 +102,7 @@ INSTALLED_APPS = [
     'pytest_celery',
     'pytest_django',
     'bootstrap3',
-    'drf_spectacular',
-    'drf_yasg'
+    'drf_spectacular'
 ]
 
 MIDDLEWARE = [
