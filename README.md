@@ -50,4 +50,4 @@ docs/v3/redoc/
 <br>
 В нем описаны предварительная сборка и запуск приложения, так же запуск тестов.
 <br>
-Ссылка на мой [GitLab](https://gitlab.com/kostroff-production/TZ_Notifications)
+Ссылка на мой [GitLab](https://gitlab.com/kostroff-production/API_Notifications)
