@@ -47,5 +47,7 @@ docs/v3/redoc/
 
 # GitLab CI
 Произведена настройка конфигурации CI в файле `.gitlab-ci.yml`.
+<br>
 В нем описаны предварительная сборка и запуск приложения, так же запуск тестов.
+<br>
 Ссылка на мой [GitLab](https://gitlab.com/kostroff-production/TZ_Notifications)
