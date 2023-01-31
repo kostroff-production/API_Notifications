@@ -27,7 +27,7 @@ def post_message(self, json):
     message = models.Message.objects.get(id=json['id'])
 
     with requests.post(
-        url=config['foreign_api'] + json['id'],
+        url=config['foreign_api'] + str(json['id']),
         auth=TokenAuth(config['token']),
         json=json
     ) as response:
