@@ -44,3 +44,8 @@ docs/v3/swagger/
 docs/v3/redoc/
 ```
 Рассылка осуществялется при помощи `Celery` и брокер для него `Redis`, код можно посмотреть здесь [tasks.py](https://github.com/kostroff-production/TZ_Notifications/blob/main/app/tasks.py)
+
+# GitLab CI
+Произведена настройка конфигурации CI в файле `.gitlab-ci.yml`.
+В нем описаны предварительная сборка и запуск приложения, так же запуск тестов.
+Ссылка на мой [GitLab](https://gitlab.com/kostroff-production/TZ_Notifications)
