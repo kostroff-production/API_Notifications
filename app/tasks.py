@@ -56,8 +56,8 @@ def send_message(id):
 
     logger.info(f'send_message -> clients {clients}')
 
-    while timezone.now() + timezone.timedelta(hours=hours) < mailing.finish:
-        for client in clients:
+    for client in clients:
+        if timezone.now() + timezone.timedelta(hours=hours) < mailing.finish:
             time_interval = timezone.now() + timezone.timedelta(hours=hours)
             if client.start < time_interval.time() < client.finish:
                 message = models.Message.objects.create(
@@ -71,7 +71,8 @@ def send_message(id):
                 }
 
                 post_message.delay(json)
-        break
+        else:
+            break
 
 
 @shared_task
