@@ -226,8 +226,8 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-REDIS_HOST = '80.249.145.22'
-REDIS_PORT = '6379'
+REDIS_HOST = config['redis']['host']
+REDIS_PORT = config['redis']['port']
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 60, 'max_retries': 3}
 CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
