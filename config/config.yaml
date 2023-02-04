@@ -22,3 +22,8 @@ admin:
   login: admin
   email: work@yandex.ru
   password: admin
+  
+
+redis:
+  host: 127.0.0.1
+  port: 6379
