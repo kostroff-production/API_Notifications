@@ -16,15 +16,29 @@ class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
         fields = ('phone', 'code', 'teg', 'utc', 'start', 'finish')
+        
+    def check_phone(self, phone):
+        if len(phone) == 10:
+            return '7' + phone
+        return phone
+
+    def create_code(self, phone):
+        return re.search('9\d{0,2}', phone)[0]
+
+    def to_internal_value(self, data):
+        if len(data['phone']) < 10:
+            raise ValueError('Phone number can`t be less than 10')
+        return super().to_internal_value(data)
 
     def create(self, validated_data):
-        validated_data['phone'] = '7' + validated_data['phone'] if len(validated_data['phone']) <= 10 else validated_data['phone']
-        validated_data['code'] = re.search('7(\d{0,3})', validated_data['phone'])[1]
+        validated_data['phone'] = self.check_phone(validated_data['phone'])
+        validated_data['code'] = self.create_code(validated_data['phone'])
         validated_data['teg'] = validated_data['utc']
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        validated_data['phone'] = '7' + validated_data['phone'] if len(validated_data['phone']) <= 10 else validated_data['phone']
+        validated_data['phone'] = self.check_phone(validated_data['phone'])
+        validated_data['code'] = self.create_code(validated_data['phone'])
         return super().update(instance, validated_data)
 
 
