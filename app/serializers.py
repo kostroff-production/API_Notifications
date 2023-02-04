@@ -3,7 +3,6 @@ from rest_framework import serializers
 from .models import Mailing, Client, Message
 
 
-
 class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
